@@ -1,0 +1,9 @@
+from sqlalchemy import create_engine
+
+# Create an engine for your SQLite database
+engine = create_engine('sqlite:///speedtest.db')
+
+# Connect to the database and drop the table
+with engine.connect() as conn:
+    conn.execute("DROP TABLE IF EXISTS speedtest_results")
+    print("Table 'speedtest_results' dropped successfully.")
